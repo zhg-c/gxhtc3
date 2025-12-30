@@ -1,5 +1,20 @@
 #include "gxhtc3.h"
 
+void float_to_str(char *buf, float num) {
+    int integer_part = (int)num;
+    int decimal_part = (int)((num - integer_part) * 100 + 0.5);
+    
+    if (decimal_part >= 100) {
+        integer_part += 1;
+        decimal_part -= 100;
+    } else if (num < 0 && decimal_part > 0) {
+        decimal_part = 100 - decimal_part;
+        integer_part -= 1;
+    }
+    
+    sprintf(buf, "%d.%02d", integer_part, decimal_part);
+}
+
 void HAL_Delay_us(uint32_t us);
 /**
  * @brief CRC8校验（手册表15：多项式0x31，初始值0xFF，无反射）

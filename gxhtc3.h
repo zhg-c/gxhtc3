@@ -44,5 +44,6 @@ HAL_StatusTypeDef GXHTC3_ReadHumidityTemp(I2C_HandleTypeDef *hi2c, GXHTC3_DataTy
 // 工具函数
 HAL_StatusTypeDef GXHTC3_SoftReset(I2C_HandleTypeDef *hi2c);
 HAL_StatusTypeDef GXHTC3_EnterSleep(I2C_HandleTypeDef *hi2c);
+void float_to_str(char *buf, float num);
 
 #endif // GXHTC3_HAL_H
